@@ -44,7 +44,7 @@ void TrieService::insert(const std::wstring &word) {
 
 bool TrieService::search(const std::wstring &word) {
     bool is_contain = false;
-    for (int i = 0; i < word.length(); ++i) {
+    for (size_t i = 0; i < word.length(); ++i) {
         int wordLen = getSensitiveLength(word, i);
         if (wordLen > 0) {
             is_contain = true;
@@ -68,7 +68,7 @@ bool TrieService::startsWith(const std::wstring &prefix) {
 
 std::set<SensitiveWord> TrieService::getSensitive(const std::wstring &word) {
     std::set<SensitiveWord> sensitiveSet;
-    for (int i = 0; i < word.length(); ++i) {
+    for (size_t i = 0; i < word.length(); ++i) {
         int wordLen = getSensitiveLength(word, i);
         if (wordLen > 0) {
             std::wstring sensitiveWord = word.substr(i, wordLen);
@@ -88,7 +88,7 @@ int TrieService::getSensitiveLength(std::wstring word, int startIndex) {
     TrieNode *p1 = root_;
     int wordLen = 0;
     bool endFlag = false;
-    for (int p3 = startIndex; p3 < word.length(); ++p3) {
+    for (size_t p3 = startIndex; p3 < word.length(); ++p3) {
         int unicode = SbcConvertService::charConvert(word[p3]);
         auto subNode = p1->getSubNode(unicode);
         if (subNode == nullptr) {

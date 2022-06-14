@@ -114,8 +114,6 @@ inline T const &Max(T const &a, T const &b) {
         string s1 = "Hello";
         string s2 = "World";
         cout << "Max(s1, s2): " << Max(s1, s2) << endl;
-    } catch (exception e) {
-        cout << e.what() << endl;
     } catch (...) {
         cout << "......" << endl;
     }
